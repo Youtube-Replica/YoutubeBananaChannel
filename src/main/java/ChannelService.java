@@ -10,8 +10,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeoutException;
 
-public class CommentService {
-    private static final String RPC_QUEUE_NAME = "comment-request";
+public class ChannelService {
+    private static final String RPC_QUEUE_NAME = "channel-request";
 
     public static void main(String [] argv) {
 

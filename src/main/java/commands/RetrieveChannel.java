@@ -8,11 +8,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import javax.xml.stream.events.Comment;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class RetrieveComment extends Command {
+public class RetrieveChannel extends Command {
    public void execute() {
        HashMap<String, Object> props = parameters;
 
@@ -20,18 +19,27 @@ public class RetrieveComment extends Command {
        JSONParser parser = new JSONParser();
        int id = 0;
        int video_id = 0;
-       boolean flag = false;
+       int offset = 0;
+       int limit = 0;
+       String getType = "";
        try {
            JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
            System.out.println("******xxx******");
            JSONObject params = (JSONObject) parser.parse(body.get("parameters").toString());
            System.out.println(params.toString());
-           if(params.containsKey("video_id")){
+           if(params.containsKey("video_id") && params.containsKey("offset")){
                video_id = Integer.parseInt(params.get("video_id").toString());
-               flag = true;
+               offset = Integer.parseInt(params.get("offset").toString());
+               limit = Integer.parseInt(params.get("limit").toString());
+               getType = "videoIdPaginated";
+           }
+           else if(params.containsKey("video_id")){
+               video_id = Integer.parseInt(params.get("video_id").toString());
+               getType = "videoId";
            }
            else{
                id = Integer.parseInt(params.get("id").toString());
+               getType = "allComments";
            }
        } catch (ParseException e) {
            e.printStackTrace();
@@ -41,12 +49,18 @@ public class RetrieveComment extends Command {
        AMQP.BasicProperties replyProps = (AMQP.BasicProperties) props.get("replyProps");
        Envelope envelope = (Envelope) props.get("envelope");
        String response = "";
-       if(flag){
-           System.out.println("Get comments by VIDEO ID");
-           response = model.Comment.getCommentsByVideoID(video_id);
+
+       if(getType.equals("videoIdPaginated")){
+           System.out.println("Get comments by VIDEO ID paginated");
+           response = model.Channel.getCommentsByVideoIDPaginated(video_id, offset, limit);
+       }
+       else if(getType.equals("videoId")){
+           System.out.println("Get all comments on VIDEO ID");
+           response = model.Channel.getCommentsByVideoID(id);
        }
        else{
-           response = model.Comment.getCommentByID(id);
+           System.out.println("Get comment by its ID");
+           response = model.Channel.getCommentByID(id);
        }
        try {
            channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));

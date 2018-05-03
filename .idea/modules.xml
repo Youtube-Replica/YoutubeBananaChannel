@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Comment.iml" filepath="$PROJECT_DIR$/Comment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Channel.iml" filepath="$PROJECT_DIR$/Channel.iml" />
     </modules>
   </component>
 </project>

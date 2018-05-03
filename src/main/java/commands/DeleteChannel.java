@@ -13,20 +13,14 @@ import java.util.HashMap;
 public class DeleteChannel extends Command {
     public void execute(){
         HashMap<String, Object> props = parameters;
-        boolean flag = false;
         com.rabbitmq.client.Channel channel = (com.rabbitmq.client.Channel) props.get("channel");
         JSONParser parser = new JSONParser();
         int id = 0;
-        int reply_id = 0;
         try {
             JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
             System.out.println(body.toString());
             JSONObject params = (JSONObject) parser.parse(body.get("parameters").toString());
             id = Integer.parseInt(params.get("id").toString());
-            if(params.containsKey("reply_id")) {
-                reply_id = Integer.parseInt(params.get("reply_id").toString());
-                flag = true;
-            }
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -34,12 +28,9 @@ public class DeleteChannel extends Command {
         AMQP.BasicProperties replyProps = (AMQP.BasicProperties) props.get("replyProps");
         Envelope envelope = (Envelope) props.get("envelope");
         String response ="";
-        if(flag){
-             response = Channel.deleteReplyByID(id,reply_id);
-        }else{
-             response = Channel.deleteCommentByID(id);
-        }
-//        String response = (String)props.get("body");
+
+        response = Channel.deleteChannel(id);
+
         try {
             channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
             channel.basicAck(envelope.getDeliveryTag(), false);

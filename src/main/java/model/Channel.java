@@ -175,10 +175,9 @@ public class Channel {
         return "Document created";
     }
 
-    public static String deleteCommentByID(int id){
+    public static String deleteChannel(int id){
         ArangoDB arangoDB = new ArangoDB.Builder().build();
         String dbName = "scalable";
-        String collectionName = "comments";
         try {
         arangoDB.db(dbName).collection(collectionName).deleteDocument(""+id);
         }catch (ArangoDBException e){
@@ -186,25 +185,6 @@ public class Channel {
         }
         return "Channel Deleted";
     }
-
-    public static String deleteReplyByID(int comment_id,int reply_id){
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "scalable";
-        String collectionName = "comments";
-        BaseDocument myDocument = arangoDB.db(dbName).collection(collectionName).getDocument("" + comment_id,
-                BaseDocument.class);
-        try {
-    ArrayList<JSONObject> replies = new ArrayList<>();
-        replies = (ArrayList<JSONObject>) myDocument.getAttribute("replies");
-        replies.remove(reply_id);
-        myDocument.updateAttribute("replies", replies);
-        arangoDB.db(dbName).collection(collectionName).deleteDocument("" + comment_id);
-        arangoDB.db(dbName).collection(collectionName).insertDocument(myDocument);
-        }catch (ArangoDBException e){
-            System.err.println(e.getErrorMessage());
-        }
-        return "Reply Deleted";
-        }
 
     public static String updateComment(int comment_id ,int video_id, String text, JSONArray likes, JSONArray dislikes, int user_id, JSONArray mentions, JSONArray replies){
         ArangoDB arangoDB = new ArangoDB.Builder().build();

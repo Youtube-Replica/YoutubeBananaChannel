@@ -4,8 +4,11 @@
     <list default="true" id="87acbc6e-8dd7-46ae-a64e-2ff48f1259ef" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/DeleteChannel.java" afterPath="$PROJECT_DIR$/src/main/java/commands/DeleteChannel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/test.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java" afterPath="$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Channel.java" afterPath="$PROJECT_DIR$/src/main/java/model/Channel.java" />
+      <change beforePath="$PROJECT_DIR$/target/classes/commands/DeleteChannel.class" afterPath="$PROJECT_DIR$/target/classes/commands/DeleteChannel.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/commands/RetrieveChannel.class" afterPath="$PROJECT_DIR$/target/classes/commands/RetrieveChannel.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Channel.class" afterPath="$PROJECT_DIR$/target/classes/model/Channel.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ChannelService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChannelService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ChannelService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            <state relative-caret-position="357">
+              <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,17 +33,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Channel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Channel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/Channel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="185" column="33" lean-forward="true" selection-start-line="185" selection-start-column="33" selection-end-line="185" selection-end-column="33" />
+            <state relative-caret-position="244">
+              <caret line="49" column="52" lean-forward="false" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getCommentByID#0;class#Channel#0" expanded="false" />
-                <element signature="method#getCommentsByVideoID#0;class#Channel#0" expanded="false" />
+                <element signature="method#getChannelByID#0;class#Channel#0" expanded="false" />
                 <element signature="method#getCommentsByVideoIDPaginated#0;class#Channel#0" expanded="false" />
                 <element signature="method#createChannel#0;class#Channel#0" expanded="false" />
+                <element signature="method#deleteChannel#0;class#Channel#0" expanded="false" />
                 <element signature="method#updateComment#0;class#Channel#0" expanded="false" />
               </folding>
             </state>
@@ -50,8 +53,8 @@
       <file leaf-file-name="CreateChannel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/commands/CreateChannel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="49" column="38" lean-forward="false" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+            <state relative-caret-position="585">
+              <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -60,8 +63,8 @@
       <file leaf-file-name="RetrieveChannel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="53" column="46" lean-forward="false" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+            <state relative-caret-position="615">
+              <caret line="49" column="44" lean-forward="false" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -71,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/commands/DeleteChannel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
-              <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+              <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -89,6 +92,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>package model\;\n\nimport com\.arangodb\.ArangoDB\;\nimport com\.arangodb\.ArangoDBException\;\n\nimport com\.arangodb\.entity\.BaseDocument\;\nimport org\.json\.simple\.JSONArray\;\nimport org\.json\.simple\.JSONObject\;\n\nimport java\.util\.ArrayList\;\n\npublic class Comment \{\n\n    public static String getCommentByID\(int id\) \{\n        ArangoDB arangoDB \= new ArangoDB\.Builder\(\)\.build\(\)\;\n        String dbName \= \&quot;scalable\&quot;\;\n        String collectionName \= \&quot;Comments\&quot;\;\n        JSONObject commentObjectM \= new JSONObject\(\)\;\n        JSONArray commentArray \= new JSONArray\(\)\;\n        \/\/Read Document\n        \/\/haygeely id harod b list ids\n        try \{\n            BaseDocument myDocument \= arangoDB\.db\(dbName\)\.collection\(collectionName\)\.getDocument\(\&quot;\&quot; \+ id\,\n                    BaseDocument\.class\)\;\n\n            commentObjectM\.put\(\&quot;VideoID\&quot;\,myDocument\.getAttribute\(\&quot;video_id \&quot;\)\)\;\n            commentObjectM\.put\(\&quot;Text\&quot;\,myDocument\.getAttribute\(\&quot;text\&quot;\)\)\;\n            commentObjectM\.put\(\&quot;Likes\&quot;\,myDocument\.getAttribute\(\&quot;likes\&quot;\)\)\;\n            commentObjectM\.put\(\&quot;Dislikes\&quot;\,myDocument\.getAttribute\(\&quot;dislikes\&quot;\)\)\;\n            commentObjectM\.put\(\&quot;ChannelID\&quot;\,myDocument\.getAttribute\(\&quot;user\&quot;\)\)\;\n\n            ArrayList\&lt;Integer\&gt; mentionsArray \= new ArrayList\&lt;\&gt;\(\)\;\n            mentionsArray \= \(ArrayList\) myDocument\.getAttribute\(\&quot;mentions\&quot;\)\;\n            ArrayList\&lt;JSONObject\&gt; mentionsNamesArray \= new ArrayList\&lt;\&gt;\(\)\;\n\n            for \(int i \= 0\; i \&lt; mentionsArray\.size\(\)\; i\+\+\) \{\n                try \{\n                    BaseDocument myDocument2 \= arangoDB\.db\(dbName\)\.collection\(\&quot;Channels\&quot;\)\.getDocument\(\&quot;\&quot; \+ mentionsArray\.get\(i\)\,\n                            BaseDocument\.class\)\;\n                    JSONObject channelObject \= new JSONObject\(\)\;\n                    JSONObject info \= new JSONObject\(\)\;\n                    info\.put\(\&quot;Info\&quot;\,myDocument2\.getAttribute\(\&quot;info\&quot;\)\)\;\n                    String name \= \&quot;\&quot;\; \/\/info\.get\(\&quot;name\&quot;\)\;\n                    String profpic \= \&quot;\&quot;\; \/\/info\.get\(\&quot;profile_pic\&quot;\)\;\n                    channelObject\.put\(\&quot;Name\&quot;\, name\)\;\n                    channelObject\.put\(\&quot;Profile Picture\&quot;\, profpic\)\;\n                    mentionsNamesArray\.add\(channelObject\)\;\n                \}\n                catch \(ArangoDBException e\) \{\n                    System\.err\.println\(\&quot;Failed to get document\: myKey\; \&quot; \+ e\.getMessage\(\)\)\;\n                \}\n            \}\n            commentObjectM\.put\(\&quot;mentions\&quot;\,mentionsNamesArray\)\;\n        \} catch \(ArangoDBException e\) \{\n            System\.err\.println\(\&quot;Failed to get document\: myKey\; \&quot; \+ e\.getMessage\(\)\)\;\n        \}\n\n\n        return commentObjectM\.toString\(\)\;\n\n    \}\n    \/\/Comment for Videos by title and for Channel by name\n\/\/    public static String getSearch\(String s\) \{\n\/\/        ArangoDB arangoDB \= new ArangoDB\.Builder\(\)\.build\(\)\;\n\/\/        String dbName \= \&quot;scalable\&quot;\;\n\/\/\n\/\/        \/\/First get by channel name\n\/\/        String collectionName \= \&quot;Comments\&quot;\;\n\/\/        JSONObject searchObjectTotal \= new JSONObject\(\)\;\n\/\/\n\/\/        System\.out\.println\(\&quot;String we got\:\&quot; \+ s\)\;\n\/\/        try \{\n\/\/            String query \= \&quot;FOR doc IN Comments\\n\&quot; \+\n\/\/                    \&quot;        FILTER doc\.\`Name\` \=\= \@value\\n\&quot; \+\n\/\/\/\/                    \&quot;        FILTER CONTAINS\(doc\.\`Name\`\, \@value\)\&quot; \+\n\/\/                    \&quot;        RETURN doc\&quot;\;\n\/\/            Map\&lt;String\, Object\&gt; bindVars \= new MapBuilder\(\)\.put\(\&quot;value\&quot;\, s\)\.get\(\)\;\n\/\/\n\/\/            ArangoCursor\&lt;BaseDocument\&gt; cursor \= arangoDB\.db\(dbName\)\.query\(query\, bindVars\, null\,\n\/\/                    BaseDocument\.class\)\;\n\/\/            if\(cursor\.hasNext\(\)\) \{\n\/\/                BaseDocument cursor2 \= null\;\n\/\/                JSONArray searchArray \= new JSONArray\(\)\;\n\/\/                int id\=0\;\n\/\/                for \(\; cursor\.hasNext\(\)\; \) \{\n\/\/                    JSONObject searchObjectM \= new JSONObject\(\)\;\n\/\/                    cursor2 \= cursor\.next\(\)\;\n\/\/                    BaseDocument myDocument2 \= arangoDB\.db\(dbName\)\.collection\(collectionName\)\.getDocument\(cursor2\.getKey\(\)\,\n\/\/                            BaseDocument\.class\)\;\n\/\/                    id\= Integer\.parseInt\(cursor2\.getKey\(\)\)\;\n\/\/                    searchObjectM\.put\(\&quot;ID\&quot;\, id\)\;\n\/\/                    searchObjectM\.put\(\&quot;Name\&quot;\, myDocument2\.getAttribute\(\&quot;Name\&quot;\)\)\;\n\/\/                    searchObjectM\.put\(\&quot;Category\&quot;\, myDocument2\.getAttribute\(\&quot;Category\&quot;\)\)\;\n\/\/                    searchObjectM\.put\(\&quot;Profile Picture\&quot;\, myDocument2\.getAttribute\(\&quot;ProfilePicture\&quot;\)\)\;\n\/\/                    searchArray\.add\(searchObjectM\)\;\n\/\/                \}\n\/\/                searchObjectTotal\.put\(\&quot;Channel \&quot;\+id\,searchArray\)\;\n\/\/            \}\n\/\/\/\/            else\{\n\/\/                JSONArray searchArray \= new JSONArray\(\)\;\n\/\/                query \= \&quot;FOR doc IN Videos\\n\&quot; \+\n\/\/                       \/\/ \&quot;        FILTER doc\.\`title\` like \@value\\n\&quot; \+\n\/\/                        \&quot;        FILTER CONTAINS\(doc\.\`title\`\, \@value\)\&quot; \+\n\/\/                        \&quot;        RETURN doc\&quot;\;\n\/\/                bindVars \= new MapBuilder\(\)\.put\(\&quot;value\&quot;\, s\)\.get\(\)\;\n\/\/\n\/\/                cursor \= arangoDB\.db\(dbName\)\.query\(query\, bindVars\, null\,\n\/\/                        BaseDocument\.class\)\;\n\/\/                if\(cursor\.hasNext\(\)\) \{\n\/\/                    BaseDocument cursor2\=null\;\n\/\/                    int id\=0\;\n\/\/                    for \(\; cursor\.hasNext\(\)\; \) \{\n\/\/                        cursor2 \= cursor\.next\(\)\;\n\/\/                        System\.out\.println\(cursor2\.getKey\(\)\)\;\n\/\/                        JSONObject searchObjectM \= new JSONObject\(\)\;\n\/\/                        BaseDocument myDocument2 \= arangoDB\.db\(dbName\)\.collection\(\&quot;Videos\&quot;\)\.getDocument\(cursor2\.getKey\(\)\,\n\/\/                                BaseDocument\.class\)\;\n\/\/                        id\= Integer\.parseInt\(cursor2\.getKey\(\)\)\;\n\/\/                        searchObjectM\.put\(\&quot;ID\&quot;\, id\)\;\n\/\/                        searchObjectM\.put\(\&quot;Likes\&quot;\, Integer\.parseInt\(\&quot;\&quot;\+myDocument2\.getAttribute\(\&quot;likes\&quot;\)\)\)\;\n\/\/                        searchObjectM\.put\(\&quot;Dislikes\&quot;\, Integer\.parseInt\(\&quot;\&quot;\+myDocument2\.getAttribute\(\&quot;dislikes\&quot;\)\)\)\;\n\/\/                        searchObjectM\.put\(\&quot;Views\&quot;\, Integer\.parseInt\(\&quot;\&quot;\+myDocument2\.getAttribute\(\&quot;views\&quot;\)\)\)\;\n\/\/                        searchObjectM\.put\(\&quot;Thumbnail\&quot;\, myDocument2\.getAttribute\(\&quot;thumbnail\&quot;\)\)\;\n\/\/                        searchObjectM\.put\(\&quot;Title\&quot;\, myDocument2\.getAttribute\(\&quot;title\&quot;\)\)\;\n\/\/                        searchObjectM\.put\(\&quot;Category\&quot;\, myDocument2\.getAttribute\(\&quot;category\&quot;\)\)\;\n\/\/                        searchObjectM\.put\(\&quot;Duration\&quot;\, Integer\.parseInt\(\&quot;\&quot;\+myDocument2\.getAttribute\(\&quot;duration\&quot;\)\)\)\;\n\/\/                        searchObjectM\.put\(\&quot;Date Created\&quot;\, myDocument2\.getAttribute\(\&quot;date_created\&quot;\)\)\;\n\/\/                        searchArray\.add\(searchObjectM\)\;\n\/\/                    \}\n\/\/                    searchObjectTotal\.put\(\&quot;Video \&quot;\+id\,searchArray\)\;\n\/\/                \}\n\/\/                else\{\n\/\/                    searchObjectTotal\.put\(\&quot;Not found \&quot;\,s\)\;\n\/\/                \}\n\/\/\/\/            \}\n\/\/        \} catch \(ArangoDBException e\) \{\n\/\/            System\.err\.println\(\&quot;Failed to execute query\. \&quot; \+ e\.getMessage\(\)\)\;\n\/\/        \}\n\/\/        System\.out\.println\(\&quot;Comment Object\&quot; \+ searchObjectTotal\.toString\(\)\)\;\n\/\/        return searchObjectTotal\.toString\(\)\;\n\/\/\n\/\/\n\/\/    \}\n\n    public static String createComment\(int video_id\, String text\, JSONArray likes\, JSONArray dislikes\, int user_id\, JSONArray mentions\, JSONArray replies\)\{\n        ArangoDB arangoDB \= new ArangoDB\.Builder\(\)\.build\(\)\;\n        String dbName \= \&quot;scalable\&quot;\;\n        String collectionName \= \&quot;comments\&quot;\;\n        BaseDocument myObject \= new BaseDocument\(\)\;\n        myObject\.addAttribute\(\&quot;video_id\&quot;\,video_id\)\;\n        myObject\.addAttribute\(\&quot;text\&quot;\,text\)\;\n        myObject\.addAttribute\(\&quot;likes\&quot;\,likes\)\;\n        myObject\.addAttribute\(\&quot;dislikes\&quot;\,dislikes\)\;\n        myObject\.addAttribute\(\&quot;user\&quot;\,user_id\)\;\n        myObject\.addAttribute\(\&quot;mentions\&quot;\,mentions\)\;\n        myObject\.addAttribute\(\&quot;replies\&quot;\,replies\)\;\n        try \{\n            arangoDB\.db\(dbName\)\.collection\(collectionName\)\.insertDocument\(myObject\)\;\n            System\.out\.println\(\&quot;Document created\&quot;\)\;\n        \} catch \(ArangoDBException e\) \{\n            System\.err\.println\(\&quot;Failed to create document\. \&quot; \+ e\.getMessage\(\)\)\;\n        \}\n        return \&quot;Document created\&quot;\;\n    \}\n\n    public static String deleteCommentByID\(int id\)\{\n        ArangoDB arangoDB \= new ArangoDB\.Builder\(\)\.build\(\)\;\n        String dbName \= \&quot;scalable\&quot;\;\n        String collectionName \= \&quot;comments\&quot;\;\n        try \{\n        arangoDB\.db\(dbName\)\.collection\(collectionName\)\.deleteDocument\(\&quot;\&quot;\+id\)\;\n        \}catch \(ArangoDBException e\)\{\n            System\.err\.println\(\&quot;Failed to delete document\. \&quot; \+ e\.getMessage\(\)\)\;\n        \}\n        return \&quot;Comment Deleted\&quot;\;\n    \}\n    public static String deleteReplyByID\(int comment_id\,int reply_id\)\{\n        ArangoDB arangoDB \= new ArangoDB\.Builder\(\)\.build\(\)\;\n        String dbName \= \&quot;scalable\&quot;\;\n        String collectionName \= \&quot;comments\&quot;\;\n        BaseDocument myDocument \= arangoDB\.db\(dbName\)\.collection\(collectionName\)\.getDocument\(\&quot;\&quot; \+ comment_id\,\n                BaseDocument\.class\)\;\n        try \{\n    ArrayList\&lt;JSONObject\&gt; replies \= new ArrayList\&lt;\&gt;\(\)\;\n     replies \= \(ArrayList\&lt;JSONObject\&gt;\) myDocument\.getAttribute\(\&quot;replies\&quot;\)\;\n     replies\.remove\(reply_id\)\;\n    myDocument\.updateAttribute\(\&quot;replies\&quot;\, replies\)\;\n    arangoDB\.db\(dbName\)\.collection\(collectionName\)\.deleteDocument\(\&quot;\&quot; \+ comment_id\)\;\n    arangoDB\.db\(dbName\)\.collection\(collectionName\)\.insertDocument\(myDocument\)\;\n        \}catch \(ArangoDBException e\)\{\n            System\.err\.println\(e\.getErrorMessage\(\)\)\;\n        \}\n        return \&quot;Document Updated\&quot;\;\n        \}\n\n    \}\n</find>
+      <find>myDocument</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,6 +125,7 @@
         <option value="$PROJECT_DIR$/src/main/java/ChannelService.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/test.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/DeleteChannel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Channel.java" />
       </list>
     </option>
@@ -166,7 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,9 +216,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -413,22 +418,22 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="981" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="979" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30473047" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30319735" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26510417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26510417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -451,7 +456,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -530,10 +535,10 @@
           <caret line="59" column="40" lean-forward="false" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getCommentByID#0;class#Channel#0" expanded="false" />
-            <element signature="method#getCommentsByVideoID#0;class#Channel#0" expanded="false" />
+            <element signature="method#getChannelByID#0;class#Channel#0" expanded="false" />
             <element signature="method#getCommentsByVideoIDPaginated#0;class#Channel#0" expanded="false" />
             <element signature="method#createChannel#0;class#Channel#0" expanded="false" />
+            <element signature="method#deleteChannel#0;class#Channel#0" expanded="false" />
             <element signature="method#updateComment#0;class#Channel#0" expanded="false" />
           </folding>
         </state>
@@ -572,10 +577,10 @@
           <caret line="74" column="105" lean-forward="false" selection-start-line="74" selection-start-column="105" selection-end-line="74" selection-end-column="105" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getCommentByID#0;class#Channel#0" expanded="false" />
-            <element signature="method#getCommentsByVideoID#0;class#Channel#0" expanded="false" />
+            <element signature="method#getChannelByID#0;class#Channel#0" expanded="false" />
             <element signature="method#getCommentsByVideoIDPaginated#0;class#Channel#0" expanded="false" />
             <element signature="method#createChannel#0;class#Channel#0" expanded="false" />
+            <element signature="method#deleteChannel#0;class#Channel#0" expanded="false" />
             <element signature="method#updateComment#0;class#Channel#0" expanded="false" />
           </folding>
         </state>
@@ -596,10 +601,10 @@
           <caret line="74" column="105" lean-forward="false" selection-start-line="74" selection-start-column="105" selection-end-line="74" selection-end-column="105" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getCommentByID#0;class#Channel#0" expanded="false" />
-            <element signature="method#getCommentsByVideoID#0;class#Channel#0" expanded="false" />
+            <element signature="method#getChannelByID#0;class#Channel#0" expanded="false" />
             <element signature="method#getCommentsByVideoIDPaginated#0;class#Channel#0" expanded="false" />
             <element signature="method#createChannel#0;class#Channel#0" expanded="false" />
+            <element signature="method#deleteChannel#0;class#Channel#0" expanded="false" />
             <element signature="method#updateComment#0;class#Channel#0" expanded="false" />
           </folding>
         </state>
@@ -647,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,59 +662,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="53" column="46" lean-forward="false" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="12" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/test.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/commands/CreateChannel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="49" column="38" lean-forward="false" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+        <state relative-caret-position="585">
+          <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Channel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="185" column="33" lean-forward="true" selection-start-line="185" selection-start-column="33" selection-end-line="185" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getCommentByID#0;class#Channel#0" expanded="false" />
-            <element signature="method#getCommentsByVideoID#0;class#Channel#0" expanded="false" />
-            <element signature="method#getCommentsByVideoIDPaginated#0;class#Channel#0" expanded="false" />
-            <element signature="method#createChannel#0;class#Channel#0" expanded="false" />
-            <element signature="method#updateComment#0;class#Channel#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/commands/DeleteChannel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="49" column="44" lean-forward="false" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ChannelService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        <state relative-caret-position="357">
+          <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Channel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="49" column="52" lean-forward="false" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getChannelByID#0;class#Channel#0" expanded="false" />
+            <element signature="method#getCommentsByVideoIDPaginated#0;class#Channel#0" expanded="false" />
+            <element signature="method#createChannel#0;class#Channel#0" expanded="false" />
+            <element signature="method#deleteChannel#0;class#Channel#0" expanded="false" />
+            <element signature="method#updateComment#0;class#Channel#0" expanded="false" />
           </folding>
         </state>
       </provider>

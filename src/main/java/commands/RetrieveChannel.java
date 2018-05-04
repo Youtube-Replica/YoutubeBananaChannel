@@ -13,54 +13,45 @@ import java.util.HashMap;
 
 public class RetrieveChannel extends Command {
    public void execute() {
+       System.out.println();
        HashMap<String, Object> props = parameters;
 
        Channel channel = (Channel) props.get("channel");
        JSONParser parser = new JSONParser();
-       int id = 0;
-       int video_id = 0;
+       int channel_id = 0;
+       String channel_containing = "";
        int offset = 0;
        int limit = 0;
        String getType = "";
        try {
            JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
-           System.out.println("******xxx******");
            JSONObject params = (JSONObject) parser.parse(body.get("parameters").toString());
            System.out.println(params.toString());
-           if(params.containsKey("video_id") && params.containsKey("offset")){
-               video_id = Integer.parseInt(params.get("video_id").toString());
+           if(params.containsKey("offset")){
+               channel_containing = params.get("channel_containing").toString();
                offset = Integer.parseInt(params.get("offset").toString());
                limit = Integer.parseInt(params.get("limit").toString());
-               getType = "videoIdPaginated";
-           }
-           else if(params.containsKey("video_id")){
-               video_id = Integer.parseInt(params.get("video_id").toString());
-               getType = "videoId";
+               getType = "channelsPaginated";
            }
            else{
-               id = Integer.parseInt(params.get("id").toString());
-               getType = "allComments";
+               channel_id = Integer.parseInt(params.get("id").toString());
+               getType = "channel";
            }
        } catch (ParseException e) {
            e.printStackTrace();
        }
-       System.out.println("Passed!");
        AMQP.BasicProperties properties = (AMQP.BasicProperties) props.get("properties");
        AMQP.BasicProperties replyProps = (AMQP.BasicProperties) props.get("replyProps");
        Envelope envelope = (Envelope) props.get("envelope");
        String response = "";
 
-       if(getType.equals("videoIdPaginated")){
-           System.out.println("Get comments by VIDEO ID paginated");
-           response = model.Channel.getCommentsByVideoIDPaginated(video_id, offset, limit);
-       }
-       else if(getType.equals("videoId")){
-           System.out.println("Get all comments on VIDEO ID");
-           response = model.Channel.getCommentsByVideoID(id);
+       if(getType.equals("channelsPaginated")){
+           System.out.println("Get channels paginated");
+           response = model.Channel.getChannelsContaining(channel_containing, offset, limit);
        }
        else{
-           System.out.println("Get comment by its ID");
-           response = model.Channel.getCommentByID(id);
+           System.out.println("Get channel by its ID");
+           response = model.Channel.getChannelByID(channel_id);
        }
        try {
            channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));

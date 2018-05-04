@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87acbc6e-8dd7-46ae-a64e-2ff48f1259ef" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/dump.rdb" afterPath="$PROJECT_DIR$/dump.rdb" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ChannelService.java" afterPath="$PROJECT_DIR$/src/main/java/ChannelService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/CreateChannel.java" afterPath="$PROJECT_DIR$/src/main/java/commands/CreateChannel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/DeleteChannel.java" afterPath="$PROJECT_DIR$/src/main/java/commands/DeleteChannel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java" afterPath="$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/UpdateChannel.java" afterPath="$PROJECT_DIR$/src/main/java/commands/UpdateChannel.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Channel.java" afterPath="$PROJECT_DIR$/src/main/java/model/Channel.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/ChannelService$1.class" afterPath="$PROJECT_DIR$/target/classes/ChannelService$1.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/ChannelService.class" afterPath="$PROJECT_DIR$/target/classes/ChannelService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/commands/CreateChannel.class" afterPath="$PROJECT_DIR$/target/classes/commands/CreateChannel.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/commands/DeleteChannel.class" afterPath="$PROJECT_DIR$/target/classes/commands/DeleteChannel.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/commands/RetrieveChannel.class" afterPath="$PROJECT_DIR$/target/classes/commands/RetrieveChannel.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/commands/UpdateChannel.class" afterPath="$PROJECT_DIR$/target/classes/commands/UpdateChannel.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/Channel.class" afterPath="$PROJECT_DIR$/target/classes/model/Channel.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,8 +26,8 @@
       <file leaf-file-name="ChannelService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ChannelService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,15 +35,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="53" lean-forward="false" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Channel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/Channel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state relative-caret-position="200">
+              <caret line="134" column="76" lean-forward="false" selection-start-line="134" selection-start-column="76" selection-end-line="134" selection-end-column="76" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getChannelByID#0;class#Channel#0" expanded="false" />
-                <element signature="method#updateChannel#0;class#Channel#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -58,7 +60,7 @@
       <file leaf-file-name="UpdateChannel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/commands/UpdateChannel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
+            <state relative-caret-position="446">
               <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
@@ -75,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RetrieveChannel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RetrieveChannel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="133">
+              <caret line="31" column="74" lean-forward="false" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -128,7 +130,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Model/Comment.java" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/Get/GetComment.java" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/GetComment.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/CreateComment.java" />
         <option value="$PROJECT_DIR$/src/main/java/CommentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/CreateComment.java" />
@@ -137,12 +138,13 @@
         <option value="$PROJECT_DIR$/src/main/java/commands/RetrieveComment.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Comment.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ChannelService.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/UpdateChannel.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/CreateChannel.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/DeleteChannel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ChannelService.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Channel.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -159,6 +161,11 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="Comment" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Comment" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
@@ -231,6 +238,11 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="YoutubeBananaChannel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YoutubeBananaChannel" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -258,7 +270,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ChannelService">
+  <component name="RunManager" selected="JAR Application.Comment-1.0-SNAPSHOT-jar-with-dependencies.jar">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -352,6 +364,11 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration name="Comment-1.0-SNAPSHOT-jar-with-dependencies.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Comment-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+      <envs />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -404,16 +421,18 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.ChannelService" />
       <item index="1" class="java.lang.String" itemvalue="Application.Channel" />
       <item index="2" class="java.lang.String" itemvalue="Application.test" />
+      <item index="3" class="java.lang.String" itemvalue="JAR Application.Comment-1.0-SNAPSHOT-jar-with-dependencies.jar" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.ChannelService" />
-        <item index="1" class="java.lang.String" itemvalue="Application.test" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Channel" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JAR Application.Comment-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ChannelService" />
+        <item index="2" class="java.lang.String" itemvalue="Application.test" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Channel" />
       </list>
     </recent_temporary>
   </component>
@@ -435,7 +454,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="983" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -444,8 +462,8 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30296376" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12552084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30296376" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -552,8 +570,6 @@
           <caret line="59" column="40" lean-forward="false" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getChannelByID#0;class#Channel#0" expanded="false" />
-            <element signature="method#updateChannel#0;class#Channel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -591,8 +607,6 @@
           <caret line="74" column="105" lean-forward="false" selection-start-line="74" selection-start-column="105" selection-end-line="74" selection-end-column="105" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getChannelByID#0;class#Channel#0" expanded="false" />
-            <element signature="method#updateChannel#0;class#Channel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -612,8 +626,6 @@
           <caret line="74" column="105" lean-forward="false" selection-start-line="74" selection-start-column="105" selection-end-line="74" selection-end-column="105" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getChannelByID#0;class#Channel#0" expanded="false" />
-            <element signature="method#updateChannel#0;class#Channel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -640,13 +652,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/SearchService.class" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/commands/GetComment.java" />
     <entry file="file://$PROJECT_DIR$/target/classes/model/Comment.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/commands/Command.java">
@@ -664,10 +669,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/commands/test.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/DeleteChannel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/UpdateChannel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="446">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -680,40 +685,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Channel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getChannelByID#0;class#Channel#0" expanded="false" />
-            <element signature="method#updateChannel#0;class#Channel#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="133">
+          <caret line="31" column="74" lean-forward="false" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/DeleteChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ChannelService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="135">
+          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/UpdateChannel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Channel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="200">
+          <caret line="134" column="76" lean-forward="false" selection-start-line="134" selection-start-column="76" selection-end-line="134" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/RetrieveChannel.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="25" column="53" lean-forward="false" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
           <folding />
         </state>
       </provider>

@@ -19,7 +19,8 @@ public class Channel {
 
     public static String getChannelByID(int id) {
         System.out.println("in get channel by id");
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
+        String host = System.getenv("ARANGO_DB_SERVICE_HOST");
+        ArangoDB arangoDB = new ArangoDB.Builder().host(host, 8529).build();
         String dbName = "scalable";
         JSONObject channelObject = new JSONObject();
         try {
@@ -40,7 +41,8 @@ public class Channel {
     }
 
     public static String getChannelsContaining(String channel_containing, int offset, int limit) {
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
+        String host = System.getenv("ARANGO_DB_SERVICE_HOST");
+        ArangoDB arangoDB = new ArangoDB.Builder().host(host, 8529).build();
         String dbName = "scalable";
         JSONObject allChannelsReturned = new JSONObject();
 
@@ -86,7 +88,8 @@ public class Channel {
     }
 
     public static String createChannel(int user_id, JSONObject info){
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
+        String host = System.getenv("ARANGO_DB_SERVICE_HOST");
+        ArangoDB arangoDB = new ArangoDB.Builder().host(host, 8529).build();
         String dbName = "scalable";
         BaseDocument myObject = new BaseDocument();
 
@@ -115,7 +118,8 @@ public class Channel {
     }
 
     public static String deleteChannel(int id){
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
+        String host = System.getenv("ARANGO_DB_SERVICE_HOST");
+        ArangoDB arangoDB = new ArangoDB.Builder().host(host, 8529).build();
         String dbName = "scalable";
         try {
         arangoDB.db(dbName).collection(collectionName).deleteDocument(""+id);
@@ -127,7 +131,8 @@ public class Channel {
 
     public static String updateChannel(int channel_id ,JSONObject info, JSONArray subscriptions, JSONArray watched_videos,
                                        JSONArray blocked_channels, JSONArray notifications){
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
+        String host = System.getenv("ARANGO_DB_SERVICE_HOST");
+        ArangoDB arangoDB = new ArangoDB.Builder().host(host, 8529).build();
         String dbName = "scalable";
         BaseDocument myObject = arangoDB.db(dbName).collection(collectionName).getDocument("" + channel_id,
                 BaseDocument.class);

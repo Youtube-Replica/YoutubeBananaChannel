@@ -16,32 +16,35 @@ public class UpdateChannel extends Command {
         HashMap<String, Object> props = parameters;
         com.rabbitmq.client.Channel channel = (com.rabbitmq.client.Channel) props.get("channel");
         JSONParser parser = new JSONParser();
-        int video_id  = 0;
-        String text = "";
-        JSONArray likes =null;
-        JSONArray dislikes =null;
-        int user_id = 0;
-        int id =0;
-        JSONArray mentions = null;
-        JSONArray replies = null;
+
+        int channel_id  = 0;
+        JSONObject info = null;
+        JSONArray subscriptions = null;
+        JSONArray watched_videos = null;
+        JSONArray blocked_channels = null;
+        JSONArray notifications = null;
+
         try {
             JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
             JSONObject params = (JSONObject) parser.parse(body.get("body").toString());
-            id = Integer.parseInt(params.get("id").toString());
-            video_id = Integer.parseInt( params.get("video_id").toString());
-            text = params.get("text").toString();
-            likes = (JSONArray) params.get("likes");
-            mentions = (JSONArray) params.get("mentions");
-            dislikes = (JSONArray) params.get("dislikes");
-            user_id = Integer.parseInt(params.get("user").toString());
-            replies = (JSONArray) params.get("replies");
+
+            channel_id = Integer.parseInt(params.get("id").toString());
+            info = (JSONObject) parser.parse(params.get("info").toString());
+            subscriptions = (JSONArray) params.get("subscriptions");
+            watched_videos = (JSONArray) params.get("watched_videos");
+            blocked_channels = (JSONArray) params.get("blocked_channels");
+            notifications = (JSONArray) params.get("notifications");
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
         AMQP.BasicProperties properties = (AMQP.BasicProperties) props.get("properties");
         AMQP.BasicProperties replyProps = (AMQP.BasicProperties) props.get("replyProps");
         Envelope envelope = (Envelope) props.get("envelope");
-        String response = Channel.updateComment(id,video_id,text,likes,dislikes,user_id,mentions,replies);
+
+        String response = Channel.updateChannel(channel_id, info, subscriptions, watched_videos, blocked_channels,
+                notifications);
 //        String response = (String)props.get("body");
         try {
             channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));

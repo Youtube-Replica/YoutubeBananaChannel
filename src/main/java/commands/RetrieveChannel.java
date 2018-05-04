@@ -26,7 +26,7 @@ public class RetrieveChannel extends Command {
        try {
            JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
            JSONObject params = (JSONObject) parser.parse(body.get("parameters").toString());
-           System.out.println(params.toString());
+           System.out.println("params: " + params.toString());
            if(params.containsKey("offset")){
                channel_containing = params.get("channel_containing").toString();
                offset = Integer.parseInt(params.get("offset").toString());

@@ -39,8 +39,6 @@ public class Channel {
     }
 
     public static String getChannelsContaining(String channel_containing, int offset, int limit) {
-        System.out.println("in get channels containing: " + channel_containing);
-
         ArangoDB arangoDB = new ArangoDB.Builder().build();
         String dbName = "scalable";
         JSONObject allChannelsReturned = new JSONObject();
@@ -67,7 +65,7 @@ public class Channel {
                     System.out.println("myDocument: " + myDocument.toString());
 //                    new_id = Integer.parseInt(cursor2.getKey());
 
-                    searchObjectM.put("channel_id",myDocument.getAttribute("id"));
+                    searchObjectM.put("id",myDocument.getAttribute("id"));
                     searchObjectM.put("info",myDocument.getAttribute("info"));
                     searchObjectM.put("subscriptions",myDocument.getAttribute("subscriptions"));
                     searchObjectM.put("watched_videos",myDocument.getAttribute("watched_videos"));
@@ -77,7 +75,7 @@ public class Channel {
 
                     searchArray.add(searchObjectM);
                 }
-                allChannelsReturned.put("channels containing: " + channel_containing, searchArray);
+                allChannelsReturned.put("channels", searchArray);
             }
 
         } catch (ArangoDBException e) {
@@ -86,66 +84,7 @@ public class Channel {
         return allChannelsReturned.toString();
     }
 
-    // Request: http://localhost:12345/comment?video_id=1&offset=5&limit=10
-    // Response:
-    public static String getCommentsByVideoIDPaginated(int id, int offset, int limit) {
-        System.out.println("ID: " + id);
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "scalable";
-        String collectionName = "comments";
-        JSONObject allCommentsReturned = new JSONObject();
-
-        try {
-            String query = "FOR doc IN comments\n" +
-                    "        FILTER doc.`video_id` == @value\n" +
-                    //sort by time
-                    "        LIMIT " + offset + ", " + limit +
-                    "        RETURN doc";
-            Map<String, Object> bindVars = new MapBuilder().put("value", id).get();
-            System.out.println("Bind vars:");
-            System.out.println(bindVars.toString());
-            ArangoCursor<BaseDocument> cursor = arangoDB.db(dbName).query(query, bindVars, null,
-                    BaseDocument.class);
-
-            if(cursor.hasNext()) {
-                BaseDocument cursor2 = null;
-                JSONArray searchArray = new JSONArray();
-                int new_id=0;
-                for (; cursor.hasNext(); ) {
-                    JSONObject searchObjectM = new JSONObject();
-                    cursor2 = cursor.next();
-                    BaseDocument myDocument2 = arangoDB.db(dbName).collection(collectionName).getDocument(cursor2.getKey(),
-                            BaseDocument.class);
-                    new_id = Integer.parseInt(cursor2.getKey());
-
-//                    searchObjectM.put("Video ID",myDocument2.getAttribute("video_id"));
-                    searchObjectM.put("video_id",new_id);
-                    searchObjectM.put("text",myDocument2.getAttribute("text"));
-                    searchObjectM.put("likes",myDocument2.getAttribute("likes"));
-                    searchObjectM.put("dislikes",myDocument2.getAttribute("dislikes"));
-                    searchObjectM.put("channel_id",myDocument2.getAttribute("user"));
-                    searchObjectM.put("mentions_ids",myDocument2.getAttribute("mentions"));
-                    searchObjectM.put("reply_ids",myDocument2.getAttribute("replies"));
-
-                    searchArray.add(searchObjectM);
-                }
-                allCommentsReturned.put("comments_on_video_: "+id,searchArray);
-            }
-
-        } catch (ArangoDBException e) {
-
-
-
-
-
-
-            System.err.println("Failed to get document: myKey; " + e.getMessage());
-        }
-        return allCommentsReturned.toString();
-    }
-
     public static String createChannel(JSONObject info){
-        System.out.println("In create channel");
         ArangoDB arangoDB = new ArangoDB.Builder().build();
         String dbName = "scalable";
         BaseDocument myObject = new BaseDocument();
@@ -182,28 +121,27 @@ public class Channel {
         return "Channel Deleted";
     }
 
-    public static String updateComment(int comment_id ,int video_id, String text, JSONArray likes, JSONArray dislikes, int user_id, JSONArray mentions, JSONArray replies){
+    public static String updateChannel(int channel_id ,JSONObject info, JSONArray subscriptions, JSONArray watched_videos,
+                                       JSONArray blocked_channels, JSONArray notifications){
         ArangoDB arangoDB = new ArangoDB.Builder().build();
         String dbName = "scalable";
-        String collectionName = "comments";
-        BaseDocument myObject = arangoDB.db(dbName).collection(collectionName).getDocument("" + comment_id,
+        BaseDocument myObject = arangoDB.db(dbName).collection(collectionName).getDocument("" + channel_id,
                 BaseDocument.class);
 
-        myObject.updateAttribute("video_id",video_id);
-        myObject.updateAttribute("text",text);
-        myObject.updateAttribute("likes",likes);
-        myObject.updateAttribute("dislikes",dislikes);
-        myObject.updateAttribute("user",user_id);
-        myObject.updateAttribute("mentions",mentions);
-        myObject.updateAttribute("replies",replies);
+        myObject.updateAttribute("info",info);
+        myObject.updateAttribute("subscriptions",subscriptions);
+        myObject.updateAttribute("watched_videos",watched_videos);
+        myObject.updateAttribute("blocked_channels",blocked_channels);
+        myObject.updateAttribute("notifications",notifications);
+
         try {
-            arangoDB.db(dbName).collection(collectionName).deleteDocument(""+comment_id);
+            arangoDB.db(dbName).collection(collectionName).deleteDocument(""+channel_id);
             arangoDB.db(dbName).collection(collectionName).insertDocument(myObject);
             System.out.println("Document created");
         } catch (ArangoDBException e) {
-            System.err.println("Failed to create document. " + e.getMessage());
+            System.err.println("Failed to update document. " + e.getMessage());
         }
         return "Document updated";
     }
 
-    }
+}

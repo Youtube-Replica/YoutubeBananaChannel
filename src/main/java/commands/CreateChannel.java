@@ -21,11 +21,6 @@ public class CreateChannel extends Command {
     JSONParser parser = new JSONParser();
     JSONObject info = new JSONObject();
 
-//    JSONArray subscriptions = new JSONArray();
-//    JSONArray watched_videos = new JSONArray();
-//    JSONArray blocked_channels = new JSONArray();
-//    JSONArray notifications = new JSONArray();
-
         try {
         JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
         JSONObject params = (JSONObject) parser.parse(body.get("body").toString());
@@ -34,12 +29,6 @@ public class CreateChannel extends Command {
             System.out.println("BODY: " + body);
             System.out.println("PARAMS: " + params);
             System.out.println("INFO: " + info);
-
-//        subscriptions = (JSONArray) params.get("subscriptions");
-//        watched_videos = (JSONArray) params.get("watched_videos");
-//        blocked_channels = (JSONArray) params.get("blocked_channels");
-//        notifications = (JSONArray) params.get("notifications");
-
 
     } catch (ParseException e) {
         e.printStackTrace();

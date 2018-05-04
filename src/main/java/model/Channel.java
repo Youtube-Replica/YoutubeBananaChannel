@@ -9,6 +9,7 @@ import com.arangodb.util.MapBuilder;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Map;
@@ -84,18 +85,21 @@ public class Channel {
         return allChannelsReturned.toString();
     }
 
-    public static String createChannel(JSONObject info){
+    public static String createChannel(int user_id, JSONObject info){
         ArangoDB arangoDB = new ArangoDB.Builder().build();
         String dbName = "scalable";
         BaseDocument myObject = new BaseDocument();
 
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = formatter.format(c.getTime());
+//        Calendar c = Calendar.getInstance();
+//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//        String formattedDate = formatter.format(c.getTime());
+
+        String newDate = new Timestamp(System.currentTimeMillis()).toString();
 
         info.put("subscriptions", 0);
-        info.put("date_created",formattedDate.toString());
         myObject.addAttribute("info",info);
+        myObject.addAttribute("user_id", user_id);
+        myObject.addAttribute("date_created",newDate);
         myObject.addAttribute("subscriptions",new JSONArray());
         myObject.addAttribute("watched_videos",new JSONArray());
         myObject.addAttribute("blocked_channels",new JSONArray());
@@ -118,7 +122,7 @@ public class Channel {
         }catch (ArangoDBException e){
             System.err.println("Failed to delete document. " + e.getMessage());
         }
-        return "Channel Deleted";
+        return "Channel deleted";
     }
 
     public static String updateChannel(int channel_id ,JSONObject info, JSONArray subscriptions, JSONArray watched_videos,

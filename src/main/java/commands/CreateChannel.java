@@ -17,30 +17,32 @@ public class CreateChannel extends Command {
     HashMap<String, Object> props = parameters;
 
     com.rabbitmq.client.Channel channel = (com.rabbitmq.client.Channel) props.get("channel");
-    System.out.println("IN Channel");
     JSONParser parser = new JSONParser();
     JSONObject info = new JSONObject();
+    int user_id = 0;
 
         try {
         JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
         JSONObject params = (JSONObject) parser.parse(body.get("body").toString());
         info = (JSONObject) parser.parse(params.get("info").toString());
+        user_id = Integer.parseInt(params.get("user_id").toString());
 
-            System.out.println("BODY: " + body);
-            System.out.println("PARAMS: " + params);
-            System.out.println("INFO: " + info);
+
+        System.out.println("BODY: " + body);
+        System.out.println("PARAMS: " + params);
+        System.out.println("INFO: " + info);
 
     } catch (ParseException e) {
         e.printStackTrace();
     }
+
     AMQP.BasicProperties properties = (AMQP.BasicProperties) props.get("properties");
     AMQP.BasicProperties replyProps = (AMQP.BasicProperties) props.get("replyProps");
     Envelope envelope = (Envelope) props.get("envelope");
-    String response = Channel.createChannel(info);
+    String response = Channel.createChannel(user_id, info);
 //        String response = (String)props.get("body");
-        try {
+    try {
         channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
-        channel.basicAck(envelope.getDeliveryTag(), false);
     } catch (IOException e) {
         e.printStackTrace();
     }

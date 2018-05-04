@@ -28,12 +28,10 @@ public class DeleteChannel extends Command {
         AMQP.BasicProperties replyProps = (AMQP.BasicProperties) props.get("replyProps");
         Envelope envelope = (Envelope) props.get("envelope");
         String response ="";
-        System.out.println("in delete channel!");
         response = Channel.deleteChannel(id);
 
         try {
             channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
-            channel.basicAck(envelope.getDeliveryTag(), false);
         } catch (IOException e) {
             e.printStackTrace();
         }

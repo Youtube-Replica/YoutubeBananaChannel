@@ -1,5 +1,11 @@
+package Service;
+
+import Client.Client;
 import commands.Command;
 import com.rabbitmq.client.*;
+import io.netty.buffer.Unpooled;
+import io.netty.util.CharsetUtil;
+import model.Channel;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -10,23 +16,24 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeoutException;
 
-public class ChannelService {
+public class ChannelService extends ServiceInterface{
     private static final String RPC_QUEUE_NAME = "channel-request";
 
-    public static void main(String [] argv) {
+    public void run() {
 
         //initialize thread pool of fixed size
-        final ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(4);
+        executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(4);
 
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = null;
         try {
             connection = factory.newConnection();
-            final Channel channel = connection.createChannel();
+            channel = connection.createChannel();
 
             channel.queueDeclare(RPC_QUEUE_NAME, false, false, false, null);
 
+            Client.Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Information> [x] Awaiting RPC requests ", CharsetUtil.UTF_8));
             System.out.println(" [x] Awaiting RPC requests");
 
             Consumer consumer = new DefaultConsumer(channel) {
@@ -36,6 +43,7 @@ public class ChannelService {
                             .Builder()
                             .correlationId(properties.getCorrelationId())
                             .build();
+                    Client.Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Information> Responding to corrID: "+ properties.getCorrelationId(), CharsetUtil.UTF_8));
                     System.out.println("Responding to corrID: "+ properties.getCorrelationId());
 
                     String response = "";
@@ -53,14 +61,19 @@ public class ChannelService {
                         cmd.init(props);
                         executor.submit(cmd);
                     } catch (RuntimeException e) {
+                        Client.Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> Runtime " + e.getMessage(), CharsetUtil.UTF_8));
                         System.out.println(" [.] " + e.toString());
                     } catch (IllegalAccessException e) {
+                        Client.Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> IllegalAccessException " + e.getMessage(), CharsetUtil.UTF_8));
                         e.printStackTrace();
                     } catch (ParseException e) {
+                        Client.Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> ParseException " + e.getMessage(), CharsetUtil.UTF_8));
                         e.printStackTrace();
                     } catch (InstantiationException e) {
+                        Client.Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> InstantiationException " + e.getMessage(), CharsetUtil.UTF_8));
                         e.printStackTrace();
                     } catch (ClassNotFoundException e) {
+                        Client.Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> ClassNotFoundException " + e.getMessage(), CharsetUtil.UTF_8));
                         e.printStackTrace();
                     } finally {
                         synchronized (this) {
@@ -82,4 +95,9 @@ public class ChannelService {
         String result = messageJson.get("command").toString();
         return result;
     }
+
+    public void setDB(int dbCount) {
+        Channel.getInstance().setDB(dbCount);
+    }
+
 }

@@ -1,11 +1,14 @@
 package model;
 
+import Client.Client;
 import com.arangodb.ArangoCursor;
 import com.arangodb.ArangoDB;
 import com.arangodb.ArangoDBException;
 
 import com.arangodb.entity.BaseDocument;
 import com.arangodb.util.MapBuilder;
+import io.netty.buffer.Unpooled;
+import io.netty.util.CharsetUtil;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -15,7 +18,22 @@ import java.util.Calendar;
 import java.util.Map;
 
 public class Channel {
+    static ArangoDB arangoDB;
+    static Channel instance = new Channel();
+    static String dbName = "scalable";
     static String collectionName = "channel";
+
+    private Channel(){
+        arangoDB = new ArangoDB.Builder().build();
+    }
+
+    public static Channel getInstance(){
+        return Channel.instance;
+    }
+
+    public void setDB(int i){
+        arangoDB = new ArangoDB.Builder().maxConnections(i).build();
+    }
 
     public static String getChannelByID(int id) {
         System.out.println("in get channel by id");
@@ -40,8 +58,6 @@ public class Channel {
     }
 
     public static String getChannelsContaining(String channel_containing, int offset, int limit) {
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "scalable";
         JSONObject allChannelsReturned = new JSONObject();
 
         try {
@@ -56,7 +72,6 @@ public class Channel {
             if(cursor.hasNext()) {
                 BaseDocument cursor2 = null;
                 JSONArray searchArray = new JSONArray();
-//                int new_id=0;
                 for (; cursor.hasNext(); ) {
                     JSONObject searchObjectM = new JSONObject();
                     cursor2 = cursor.next();
@@ -64,7 +79,6 @@ public class Channel {
                     BaseDocument myDocument = arangoDB.db(dbName).collection(collectionName).getDocument(cursor2.getKey(),
                             BaseDocument.class);
                     System.out.println("myDocument: " + myDocument.toString());
-//                    new_id = Integer.parseInt(cursor2.getKey());
 
                     searchObjectM.put("id",myDocument.getAttribute("id"));
                     searchObjectM.put("info",myDocument.getAttribute("info"));
@@ -80,19 +94,14 @@ public class Channel {
             }
 
         } catch (ArangoDBException e) {
+            Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> Failed to get document: myKey; " + e.getMessage(), CharsetUtil.UTF_8));
             System.err.println("Failed to get document: myKey; " + e.getMessage());
         }
         return allChannelsReturned.toString();
     }
 
     public static String createChannel(int user_id, JSONObject info){
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "scalable";
         BaseDocument myObject = new BaseDocument();
-
-//        Calendar c = Calendar.getInstance();
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//        String formattedDate = formatter.format(c.getTime());
 
         String newDate = new Timestamp(System.currentTimeMillis()).toString();
 
@@ -107,19 +116,21 @@ public class Channel {
 
         try {
             arangoDB.db(dbName).collection(collectionName).insertDocument(myObject);
+            Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Information> Document Created", CharsetUtil.UTF_8));
             System.out.println("Document created");
         } catch (ArangoDBException e) {
+            Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> Failed to create document " + e.getMessage(), CharsetUtil.UTF_8));
             System.err.println("Failed to create document. " + e.getMessage());
         }
         return "Document created";
     }
 
     public static String deleteChannel(int id){
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "scalable";
         try {
         arangoDB.db(dbName).collection(collectionName).deleteDocument(""+id);
+        Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Information> Document Deleted", CharsetUtil.UTF_8));
         }catch (ArangoDBException e){
+            Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> Failed to create document " + e.getMessage(), CharsetUtil.UTF_8));
             System.err.println("Failed to delete document. " + e.getMessage());
         }
         return "Channel deleted";

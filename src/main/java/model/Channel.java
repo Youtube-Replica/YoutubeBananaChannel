@@ -20,8 +20,8 @@ import java.util.Map;
 public class Channel {
     static ArangoDB arangoDB;
     static Channel instance = new Channel();
-    static String dbName = "scalable";
-    static String collectionName = "channel";
+    static String dbName = "subscriptions";
+    static String collectionName = "Channels";
 
     private Channel(){
         arangoDB = new ArangoDB.Builder().build();
